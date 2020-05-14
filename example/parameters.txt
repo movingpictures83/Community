@@ -1,0 +1,4 @@
+abundances	plugins/Community/example/averagecounts.noa
+clusters	plugins/Community/example/clusters.csv
+centroids	plugins/Community/example/centroids.csv
+target	"Bacteria..__Firmicutes..__Negativicutes..__Selenomonadales..__Veillonellaceae..__Veillonella"

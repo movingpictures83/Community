@@ -1,0 +1,2 @@
+Prefix plugins/Community/example/
+Plugin Community inputfile parameters.txt outputfile community.noa
