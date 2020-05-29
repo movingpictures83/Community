@@ -13,7 +13,7 @@ class CommunityPlugin:
       header = abundfile.readline() # Header
       for line in abundfile:
          contents = line.split('\t')
-         self.abundances[contents[0]] = float(contents[1])
+         self.abundances["\""+contents[0]+"\""] = float(contents[1])
 
       # Clusters
       self.clusters = []
@@ -54,7 +54,7 @@ class CommunityPlugin:
       outputfile = open(filename, 'w')
       outputfile.write("Name\tAbundance\tTarget\tCentroid\n")
       for taxontuple in self.results['clusters']:
-         outputfile.write(taxontuple[0]+"\t"+str(taxontuple[1])+"\t")
+         outputfile.write(taxontuple[0][1:len(taxontuple[0])-1]+"\t"+str(taxontuple[1])+"\t")
          if (taxontuple[0] == self.parameters['target']):
             outputfile.write(str(1)+"\t")
          else:
