@@ -1,3 +1,4 @@
+import PyPluMA
 class CommunityPlugin:
    def input(self,filename):
       # Parameter file
@@ -9,7 +10,7 @@ class CommunityPlugin:
 
       # Abundances
       self.abundances = dict()
-      abundfile = open(self.parameters['abundances'], 'r')
+      abundfile = open(PyPluMA.prefix()+"/"+self.parameters['abundances'], 'r')
       header = abundfile.readline() # Header
       for line in abundfile:
          contents = line.split('\t')
@@ -17,7 +18,7 @@ class CommunityPlugin:
 
       # Clusters
       self.clusters = []
-      clusterfile = open(self.parameters['clusters'], 'r')
+      clusterfile = open(PyPluMA.prefix()+"/"+self.parameters['clusters'], 'r')
       clustercount = 0
       for line in clusterfile:
          if (line.strip() == "\"\",\"x\""):
@@ -29,7 +30,7 @@ class CommunityPlugin:
       
       # Centroids
       self.centroids = []
-      centroidfile = open(self.parameters['centroids'], 'r')
+      centroidfile = open(PyPluMA.prefix()+"/"+self.parameters['centroids'], 'r')
       header = centroidfile.readline()
       for line in centroidfile:
          contents = line.split(',')
